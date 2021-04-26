@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DALL-E Encoder/Decoder JavaScript Demo</title>
+</head>
+<body>
+  
+  <p>DALL-E Encoder/Decoder JavaScript Demo</p>
+
+  <h2 id="loadingEl">Loading...</h2>
+
+  <div>Input:</div>
+  <canvas id="inputCanvas" width="256" height="256"></canvas>
+  <div>Reconstructed:</div>
+  <canvas id="outputCanvas" width="256" height="256"></canvas>
+
+  <script type=module>
+    import {encode, decode} from "./mod.js";
+    let img = "https://i.imgur.com/2BU6QVe.jpg";
+    
+    img = await fetch(img, {referrer:""}).then(r => r.blob()).then(b => createImageBitmap(b));
+    inputCanvas.getContext("2d").drawImage(img, 0, 0, 256, 256);
+    
+    let latent = await encode(img);
+    console.log(latent);
+
+    let pixelData = await decode(latent);
+    let imageData = new ImageData(pixelData, 256, 256);
+    outputCanvas.getContext("2d").putImageData(imageData, 0, 0);
+
+    loadingEl.innerHTML = "";
+  </script>
+
+</body>
+</html>
