@@ -12,7 +12,7 @@ https://josephrocca.github.io/dalle-encoder-decoder-js/demo.html
 <script type=module>
   import {encode, decode} from "./mod.js";
 
-  let latent = await encode("https://i.imgur.com/2BU6QVe.jpg");
+  let latent = await encode("https://i.imgur.com/2BU6QVe.jpg"); // the encode function accepts a URL, or Image, or ImageData, or ImageBitmap, or Canvas, or OffscreenCanvas, etc.
   console.log(latent);
   let pixelData = await decode(latent);
   console.log(pixelData);
