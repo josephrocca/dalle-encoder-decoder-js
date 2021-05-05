@@ -1,6 +1,6 @@
 # DALL-E Encoder/Decoder for JavaScript
 
-A JavaScript port of OpenAI's DALL-E encoder/decoder (using TensorFlow.js). Works in the browser but takes about 200x longer to encode/decode compared to Pytorch. Should work in Deno once it gets `OffscreenCanvas` and WebGL support.
+A JavaScript port of OpenAI's DALL-E encoder/decoder (using TensorFlow.js). Works in the browser but takes about 200x longer to encode/decode compared to Pytorch (not sure why - I'd have expected an order of magnitude difference but not >2 OOM). Should work in Deno once it gets `OffscreenCanvas` and WebGL support.
 
 # Demo
 
