@@ -37,7 +37,7 @@ export async function encode(img, opts={}) {
   let output = encoderModel.execute(input, ["Identity"]);
   output = output.argMax(1);
   let outputArray = (await output.array())[0];
-  await decode(outputArray);
+  //await decode(outputArray);
   return outputArray;
 };
 
